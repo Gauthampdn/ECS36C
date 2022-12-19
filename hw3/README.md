@@ -1,6 +1,5 @@
 # 36C-3
-## Third project
-### Overview & Learning Objectives
+## Overview & Learning Objectives
 In this program you will implement a priority queue with an underlying binary
 heap implementation. There are multiple objectives of this assignment:
 1. strengthen your knowledge of JSON,
