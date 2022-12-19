@@ -102,7 +102,8 @@ The program outputs the following:
     },
     "samplesWithConflictingResults": 1
   }
-}```
+}
+```
 
 The metadata field now contains information about the files being read in. The
 key Sample1 has information because it differs between SampleExample.json
@@ -123,23 +124,12 @@ for the sorting algorithms) and runs InsertionSort, MergeSort, and QuickSort
 on all samples in the file, measures various statistics, and prints these statistics
 to a CSV file.
 
-
-InsertionSortTime: The wallclock time of running InsertionSort on this
-row’s sample
-InsertionSortCompares: The number of compares used when running InsertionSort
-on this row’s sample
-InsertionSortMemaccess: The number of memory accesses when running
-InsertionSort on this row’s sample
-MergeSortTime: The wallclock time of running MergeSort on this row’s sam-
-ple
-6
-MergeSortCompares: The number of compares used when running MergeSort
-on this row’s sample
-MergeSortMemaccess: The number of memory accesses when running MergeSort
-on this row’s sample
-QuickSortTime: The wallclock time of running QuickSort on this row’s sam-
-ple
-QuickSortCompares: The number of compares used when running QuickSort
-on this row’s sample
-QuickSortMemaccess: The number of memory accesses when running QuickSort
-on this row’s sample
+InsertionSortTime: The wallclock time of running InsertionSort on this row’s sample
+InsertionSortCompares: The number of compares used when running InsertionSort on this row’s sample
+InsertionSortMemaccess: The number of memory accesses when running InsertionSort on this row’s sample
+MergeSortTime: The wallclock time of running MergeSort on this row’s sample
+MergeSortCompares: The number of compares used when running MergeSort on this row’s sample
+MergeSortMemaccess: The number of memory accesses when running MergeSort on this row’s sample
+QuickSortTime: The wallclock time of running QuickSort on this row’s sample
+QuickSortCompares: The number of compares used when running QuickSort on this row’s sample
+QuickSortMemaccess: The number of memory accesses when running QuickSort on this row’s sample
