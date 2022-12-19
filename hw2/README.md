@@ -24,9 +24,13 @@ some position i such that the ith element is equal to or larger than the i + 1st
 element. We call this a consecutive inversion. For example, if A = [−2, 0, 3, 2, 5]
 there is a consecutive inversion at location i = 2 because A[2] = 3 > 2 = A[3].
 For example, the samples
+
 Sample1 = [−1641818748, 1952682320, −195384256, −1702150187], and
+
 Sample2 = [−683761375, −406924096, −362070867, −592214369]
+
 are defined by the following input file SampleExample.json:
+'''
 {
 "Sample1": [-319106570,811700988,1350081101,1602979228],
 "Sample2": [-319106570,811700988,797039,-1680733532],
@@ -35,6 +39,8 @@ are defined by the following input file SampleExample.json:
 "numSamples":2
 }
 }
+'''
+
 Sample2 has consecutive inversions at index 1 and 2, and running
 ./sortedverification SampleExample.json
 prints the contents of a JSON object to the screen (i.e. to stdout):
