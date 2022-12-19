@@ -1,4 +1,4 @@
-# 36C-1
+# 36C-2
 ## Objectives of the assignment 
 In this program you will study and experiment with InsertionSort, MergeSort,
 and QuickSort. There are multiple objectives of this assignment:
