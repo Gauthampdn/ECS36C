@@ -30,7 +30,7 @@ Sample1 = [−1641818748, 1952682320, −195384256, −1702150187], and
 Sample2 = [−683761375, −406924096, −362070867, −592214369]
 
 are defined by the following input file SampleExample.json:
-'''
+```
 {
 "Sample1": [-319106570,811700988,1350081101,1602979228],
 "Sample2": [-319106570,811700988,797039,-1680733532],
@@ -39,7 +39,7 @@ are defined by the following input file SampleExample.json:
 "numSamples":2
 }
 }
-'''
+```
 
 Sample2 has consecutive inversions at index 1 and 2, and running
 ./sortedverification SampleExample.json
