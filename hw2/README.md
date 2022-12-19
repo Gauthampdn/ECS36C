@@ -26,10 +26,10 @@ there is a consecutive inversion at location i = 2 because A[2] = 3 > 2 = A[3].
 For example, the samples
 
 Sample1 = [−1641818748, 1952682320, −195384256, −1702150187], and
-
 Sample2 = [−683761375, −406924096, −362070867, −592214369]
 
 are defined by the following input file SampleExample.json:
+
 ```
 {
 "Sample1": [-319106570,811700988,1350081101,1602979228],
@@ -42,35 +42,26 @@ are defined by the following input file SampleExample.json:
 ```
 
 Sample2 has consecutive inversions at index 1 and 2, and running
-./sortedverification SampleExample.json
+```./sortedverification SampleExample.json```
 prints the contents of a JSON object to the screen (i.e. to stdout):
+```
 {
-"Sample2":{
-"ConsecutiveInversions":{
-"1":[
-811700988,
-797039
-],
-"2":[
-797039,
--1680733532
-]
-3
-},
-"sample":[
--319106570,
-811700988,
-797039,
--1680733532
-]
-},
-"metadata":{
-"arraySize":4,
-"file":"SampleExample.json",
-"numSamples":2,
-"samplesWithInversions":1
+  "Sample2": {
+    "ConsecutiveInversions": {
+      "1": [811700988, 797039],
+      "2": [797039, -1680733532]
+    },
+
+    "sample": [-319106570, 811700988, 797039, -1680733532]
+  },
+  "metadata": {
+    "arraySize": 4,
+    "file": "SampleExample.json",
+    "numSamples": 2,
+    "samplesWithInversions": 1
+  }
 }
-}
+```
 Sample1 has no inversions so its data is not printed to the JSON output above.
 Notice that if the consecutive inversions of a sample are added to the JSON
 object, the sample data (the array) is also added to the JSON object.
@@ -78,56 +69,41 @@ object, the sample data (the array) is also added to the JSON object.
 ### Executable #2
 Executable Name: consistentresultverification
 Source: consistentresultverification.cxx
-Usage: consistentresultverification file1.json file2.json.
+```Usage: consistentresultverification file1.json file2.json.```
+
 This program takes two command-line arguments file1.json and file2.json
 that contain JSON objects representing the output of two sorting algorithms,
-and verifies that these files represent the same samples or reports their differ-
-ences.
-I have copied SampleExample.json to AlmostSampleExample.json and mod-
-ified the second and third entries of Sample1 in AlmostSampleExample.json.
+and verifies that these files represent the same samples or reports their differences.
+
+
 These differences are output when I run
-./consistentresultverification.sh SampleExample.json AlmostSampleExample.json
+```./consistentresultverification.sh SampleExample.json AlmostSampleExample.json```
+
 The program outputs the following:
-{
-"Sample1": {
-"AlmostSampleExample.json": [
--319106570,
-8117009,
-13500811,
-1602979228
-],
-"Mismatches": {
-4
-"1": [
-811700988,
-8117009
-],
-"2": [
-1350081101,
-13500811
-]
-},
-"SampleExample.json": [
--319106570,
-811700988,
-1350081101,
-1602979228
-]
-},
-"metadata": {
-"File1": {
-"arraySize": 4,
-"name": "SampleExample.json",
-"numSamples": 2
-},
-"File2": {
-"arraySize": 4,
-"name": "AlmostSampleExample.json",
-"numSamples": 2
-},
-"samplesWithConflictingResults": 1
-}
-}
+```{
+  "Sample1": {
+    "AlmostSampleExample.json": [-319106570, 8117009, 13500811, 1602979228],
+    "Mismatches": {
+      "1": [811700988, 8117009],
+      "2": [1350081101, 13500811]
+    },
+    "SampleExample.json": [-319106570, 811700988, 1350081101, 1602979228]
+  },
+  "metadata": {
+    "File1": {
+      "arraySize": 4,
+      "name": "SampleExample.json",
+      "numSamples": 2
+    },
+    "File2": {
+      "arraySize": 4,
+      "name": "AlmostSampleExample.json",
+      "numSamples": 2
+    },
+    "samplesWithConflictingResults": 1
+  }
+}```
+
 The metadata field now contains information about the files being read in. The
 key Sample1 has information because it differs between SampleExample.json
 and AlmostSampleExample.json. Its value contains the sample from each file
@@ -146,31 +122,8 @@ This program takes the name of a JSON file as a command-line argument
 for the sorting algorithms) and runs InsertionSort, MergeSort, and QuickSort
 on all samples in the file, measures various statistics, and prints these statistics
 to a CSV file.
-Do not implement your own versions of the algorithm. Use the code
-given in inerstionsort.cpp, mergesort.cpp, and quicksort.cpp. Slight vari-
-ations of these algorithms will not work with the autograder, as you will be
-gathering specific statistics about how the algorithms behave.
-Collect the following statistics:
-Running Time: i.e. wallclock time. I used clock and CLOCKS_PER_SEC from
-the <ctime> library for this. The autograder won’t check this field; so the
-only important part about this field is your ability to get a sense of which
-algorithm is fastest on a given input.
-Number of Comparisons: A count of how often an algorithm compares at
-least one element from the array it is sorting to something else. The
-following lines of code both count as a single comparison:
-(*numbers)[i] < (*numbers)[j]
-(*numbers)[i] < a
-You will need to add lines of code to the sorting algorithms to achieve
-this. If necessary, take lazy evaluation into account.
-Number of memory accesses: A count of how often an algorithm accesses
-the array it is sorting. In the above example, the first line counts as
-two memory accesses while the second line counts as one. If necessary,
-take lazy evaluation into account.
-These statistics are then printed to the screen in CSV format (to save to a
-file, use output redirection). Your header row for your CSV file must have the
-following column names (see TimeOutputExample.csv for an example):
-Sample: The name of the sample that pertains to this row’s statistics (e.g.
-Sample1)
+
+
 InsertionSortTime: The wallclock time of running InsertionSort on this
 row’s sample
 InsertionSortCompares: The number of compares used when running InsertionSort
